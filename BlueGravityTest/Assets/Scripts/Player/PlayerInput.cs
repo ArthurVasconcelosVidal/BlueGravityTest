@@ -9,8 +9,8 @@ public class PlayerInput : MonoBehaviour{
 
     [SerializeField] Vector2 inputAxis = Vector2.zero;
 
-    Vector2 InputAxis { get { return inputAxis; } }
-    
+    public Vector2 InputAxis { get { return inputAxis; } }
+
     private void Awake() {
         inputActions = new GameInput();
         inputActions.Enable();

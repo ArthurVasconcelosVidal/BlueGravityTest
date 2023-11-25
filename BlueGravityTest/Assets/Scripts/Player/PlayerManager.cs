@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour{
-    PlayerManager instance;
+    public static PlayerManager instance;
 
     [SerializeField] PlayerInput playerInput;
     [SerializeField] MovementBehavior movementBehavior;
