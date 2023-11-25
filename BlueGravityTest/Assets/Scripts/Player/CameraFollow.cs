@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraFollow : MonoBehaviour{
-    [SerializeField] GameObject cam;
 
     void Update() {
         if(PlayerManager.instance.PlayerInput.InputAxis != Vector2.zero)
@@ -11,11 +10,12 @@ public class CameraFollow : MonoBehaviour{
     }
 
     void MoveCamera(Vector2 playerPosition){
+        
         Vector3 newPos = new Vector3(
         PlayerManager.instance.PlayerRigidbody.transform.position.x,
         PlayerManager.instance.PlayerRigidbody.transform.position.y,
-        cam.transform.position.z);
+        Camera.main.transform.position.z);
 
-        cam.transform.position = newPos;
+        Camera.main.transform.position = newPos;
     }
 }

@@ -9,11 +9,13 @@ public class PlayerManager : MonoBehaviour{
     [SerializeField] MovementBehavior movementBehavior;
     [SerializeField] Rigidbody2D playerRigidbody;
     [SerializeField] GameObject spriteObj;
+    [SerializeField] MouseRaycastManager mouseRaycastManager;
 
-    public PlayerInput PlayerInput { get { return playerInput; } }
-    public MovementBehavior MovementBehavior { get { return movementBehavior; } }
-    public Rigidbody2D PlayerRigidbody { get { return playerRigidbody; } }
-    public GameObject SpriteObj { get { return spriteObj; } }
+    public PlayerInput PlayerInput { get => playerInput; }
+    public MovementBehavior MovementBehavior { get => movementBehavior; }
+    public Rigidbody2D PlayerRigidbody { get => playerRigidbody; }
+    public GameObject SpriteObj { get => spriteObj; }
+    public MouseRaycastManager MouseRaycastManager { get => mouseRaycastManager; }
 
     void Awake() {
         SingletonPattern();

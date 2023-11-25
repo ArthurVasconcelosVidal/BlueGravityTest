@@ -44,6 +44,15 @@ public partial class @GameInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MousePosition"",
+                    ""type"": ""Value"",
+                    ""id"": ""7b31e75c-5115-4f71-b4fc-78e9e13bc3f1"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -112,6 +121,17 @@ public partial class @GameInput : IInputActionCollection2, IDisposable
                     ""action"": ""InputAxis"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""18bc5584-48b3-4371-817f-7c9baa84a3c3"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MousePosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -122,6 +142,7 @@ public partial class @GameInput : IInputActionCollection2, IDisposable
         m_PlayerInput = asset.FindActionMap("PlayerInput", throwIfNotFound: true);
         m_PlayerInput_Click = m_PlayerInput.FindAction("Click", throwIfNotFound: true);
         m_PlayerInput_InputAxis = m_PlayerInput.FindAction("InputAxis", throwIfNotFound: true);
+        m_PlayerInput_MousePosition = m_PlayerInput.FindAction("MousePosition", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -183,12 +204,14 @@ public partial class @GameInput : IInputActionCollection2, IDisposable
     private IPlayerInputActions m_PlayerInputActionsCallbackInterface;
     private readonly InputAction m_PlayerInput_Click;
     private readonly InputAction m_PlayerInput_InputAxis;
+    private readonly InputAction m_PlayerInput_MousePosition;
     public struct PlayerInputActions
     {
         private @GameInput m_Wrapper;
         public PlayerInputActions(@GameInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Click => m_Wrapper.m_PlayerInput_Click;
         public InputAction @InputAxis => m_Wrapper.m_PlayerInput_InputAxis;
+        public InputAction @MousePosition => m_Wrapper.m_PlayerInput_MousePosition;
         public InputActionMap Get() { return m_Wrapper.m_PlayerInput; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -204,6 +227,9 @@ public partial class @GameInput : IInputActionCollection2, IDisposable
                 @InputAxis.started -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnInputAxis;
                 @InputAxis.performed -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnInputAxis;
                 @InputAxis.canceled -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnInputAxis;
+                @MousePosition.started -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnMousePosition;
+                @MousePosition.performed -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnMousePosition;
+                @MousePosition.canceled -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnMousePosition;
             }
             m_Wrapper.m_PlayerInputActionsCallbackInterface = instance;
             if (instance != null)
@@ -214,6 +240,9 @@ public partial class @GameInput : IInputActionCollection2, IDisposable
                 @InputAxis.started += instance.OnInputAxis;
                 @InputAxis.performed += instance.OnInputAxis;
                 @InputAxis.canceled += instance.OnInputAxis;
+                @MousePosition.started += instance.OnMousePosition;
+                @MousePosition.performed += instance.OnMousePosition;
+                @MousePosition.canceled += instance.OnMousePosition;
             }
         }
     }
@@ -222,5 +251,6 @@ public partial class @GameInput : IInputActionCollection2, IDisposable
     {
         void OnClick(InputAction.CallbackContext context);
         void OnInputAxis(InputAction.CallbackContext context);
+        void OnMousePosition(InputAction.CallbackContext context);
     }
 }
