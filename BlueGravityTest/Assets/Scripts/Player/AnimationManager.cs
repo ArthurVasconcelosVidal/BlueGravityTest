@@ -15,16 +15,17 @@ public class AnimationManager : MonoBehaviour{
         set {
             playerAnimator.SetFloat("X", value.x);
             playerAnimator.SetFloat("Y", value.y);
-            clothesAnimator.SetFloat("X", value.x);
-            clothesAnimator.SetFloat("Y", value.y);
+            //clothesAnimator.SetFloat("X", value.x);
+            //clothesAnimator.SetFloat("Y", value.y);
         }
     }
 
     public bool IsMoving {
         private get => false;
         set {
+            print(value);
             playerAnimator.SetBool("isMoving", value);
-            clothesAnimator.SetBool("isMoving", value);
+            //clothesAnimator.SetBool("isMoving", value);
         }
     }
 

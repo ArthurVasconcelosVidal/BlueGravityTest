@@ -31,10 +31,10 @@ public class MovementBehavior : MonoBehaviour{
 
     void IsMoving(object sender, InputAction.CallbackContext context){
         if(PlayerManager.instance.PlayerInput.InputAxis != Vector2.zero){
-            print("Moving");
-            //PlayerManager.instance.AnimationManager.IsMoving = true;
+            //print("Moving");
+            PlayerManager.instance.AnimationManager.IsMoving = true;
         }else
-            print("Stopped");
-            //PlayerManager.instance.AnimationManager.IsMoving = false;
+            //print("Stopped");
+            PlayerManager.instance.AnimationManager.IsMoving = false;
     }
 }
