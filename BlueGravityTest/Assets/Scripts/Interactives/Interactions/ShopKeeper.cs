@@ -9,7 +9,6 @@ public class ShopKeeper : InteractiveBehavior{
 
     protected override void InteractionBehavior(){
         if(VerifyMoyseRaycast()){
-            print("OLÁ AMIGOS COMO ESTÃO ?");
             uiShopCanvas.gameObject.SetActive(true);
             uiShopCanvas.GetComponent<UI_ShopManager>().OrganizeStore(itemAssets);
         }

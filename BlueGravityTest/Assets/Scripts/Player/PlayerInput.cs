@@ -15,7 +15,7 @@ public class PlayerInput : MonoBehaviour{
     public Vector2 InputAxis { get => inputAxis; }
     public Vector2 MousePosition { get => mousePosition; }
 
-    public event EventHandler<InputAction.CallbackContext> OnMouseLeftClick;
+    public event EventHandler<InputAction.CallbackContext> OnMouseLeftClick, OnInputAxisChange;
 
     private void Awake() {
         inputActions = new GameInput();
@@ -30,9 +30,11 @@ public class PlayerInput : MonoBehaviour{
     void InputAxisConfig(){
         inputActions.PlayerInput.InputAxis.performed += contextMenu => {
             inputAxis = contextMenu.ReadValue<Vector2>();
+            OnInputAxisChange?.Invoke(this,contextMenu);
         };
         inputActions.PlayerInput.InputAxis.canceled += contextMenu => {
             inputAxis = Vector2.zero;
+            OnInputAxisChange?.Invoke(this,contextMenu);
         };
     }
 

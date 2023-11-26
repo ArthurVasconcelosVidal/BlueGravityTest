@@ -78,6 +78,7 @@ public class UI_ShopManager : MonoBehaviour{
     public void ButtonBuy(){
         if(selectedItem && PlayerManager.instance.Wallet.CanSpend(selectedItem.Price)){
             PlayerManager.instance.Wallet.UpdateGold(-selectedItem.Price);
+            PlayerManager.instance.ReceivedItem = selectedItem;
             UpdateMoney();
         }
     }
