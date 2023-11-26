@@ -532,6 +532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 151c6c88387e5c64cbdabc973708358f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  item: {fileID: 0}
   image: {fileID: 8569048343964681444}
   price: {fileID: 8569048342809713047}
 --- !u!1 &8569048343964681446
@@ -736,7 +737,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0.7216981, g: 1, b: 0.8512891, a: 0.2}
     m_PressedColor: {r: 0, g: 0, b: 0, a: 0.22745098}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 0.078431375}
+    m_SelectedColor: {r: 0.2688679, g: 1, b: 0.30219808, a: 0.34901962}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1.3
     m_FadeDuration: 0.1
