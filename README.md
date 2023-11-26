@@ -1,5 +1,3 @@
-# BlueGravityTest
-
 # Play Instructions
     # Movement
         Use W A S D to move around the scenario.
