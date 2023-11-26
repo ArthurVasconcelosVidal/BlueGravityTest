@@ -10,9 +10,10 @@ public class ItemAsset : ScriptableObject{
     [SerializeField] ItemCategory category;
     [SerializeField] string name;
     [SerializeField] int price;
-    
+    [SerializeField] string id;
     public Sprite Sprite { get => sprite; }
     public ItemCategory Category { get => category; }
     public string Name { get => name; }
     public int Price { get => price; }
+    public string ID { get => id; }
 }

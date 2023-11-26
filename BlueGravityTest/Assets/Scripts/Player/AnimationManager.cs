@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AnimationManager : MonoBehaviour{
 
+    public enum ClothesAnimations{A0_IdleTree, A1_IdleTree}
     [SerializeField] Animator playerAnimator;
     [SerializeField] Animator clothesAnimator;
 
@@ -23,10 +24,13 @@ public class AnimationManager : MonoBehaviour{
     public bool IsMoving {
         private get => false;
         set {
-            print(value);
             playerAnimator.SetBool("isMoving", value);
             clothesAnimator.SetBool("isMoving", value);
         }
+    }
+
+    public void PlayClothesAnimation(string animationName){
+        ClothesAnimator.Play(animationName);
     }
 
 }
