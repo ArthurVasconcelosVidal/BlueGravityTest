@@ -429,6 +429,56 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &295427381
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 295427382}
+  - component: {fileID: 295427383}
+  m_Layer: 0
+  m_Name: MouseCursor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &295427382
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295427381}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1552383262}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &295427383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295427381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a62a5407ec65c469f4e052c76f64a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseBase: {fileID: 2800000, guid: 16c60122ea3e03c4889107d64243f56c, type: 3}
+  mouseSelected: {fileID: 2800000, guid: 0447599b457755e44a9b183bdd02dfaa, type: 3}
+  mouseHighlight: {fileID: 2800000, guid: 7f313094218b81947917993e550f20e2, type: 3}
+  mouseState: 0
+  overSomething: 0
+  canInteract: 0
 --- !u!1 &364277227
 GameObject:
   m_ObjectHideFlags: 0
@@ -4589,7 +4639,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 295427382}
   m_Father: {fileID: 424692257}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4608,6 +4659,7 @@ MonoBehaviour:
   raycastLayer:
     serializedVersion: 2
     m_Bits: 64
+  mouseCursor: {fileID: 295427383}
   lastMousePosition: {x: 0, y: 0}
   hitObj: {fileID: 0}
 --- !u!1 &1601963312

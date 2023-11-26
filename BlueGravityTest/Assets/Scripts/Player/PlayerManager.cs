@@ -14,6 +14,7 @@ public class PlayerManager : MonoBehaviour{
     [SerializeField] PlayerWallet wallet;
     [SerializeField] ClothesManager clothesManager;
 
+    bool canInteract;
     ItemAsset receivedItem;
 
     public PlayerInput PlayerInput { get => playerInput; }
@@ -24,6 +25,13 @@ public class PlayerManager : MonoBehaviour{
     public MouseRaycastManager MouseRaycastManager { get => mouseRaycastManager; }
     public PlayerWallet Wallet { get => wallet; }
     public ClothesManager ClothesManager { get => clothesManager; }
+    public bool CanInteract { 
+        get => canInteract;  
+        set {
+            canInteract = value;
+            mouseRaycastManager.SetMouseCursor();
+        } 
+    }
     public ItemAsset ReceivedItem {
         get => receivedItem;
 

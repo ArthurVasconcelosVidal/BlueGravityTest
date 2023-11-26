@@ -12,15 +12,19 @@ public class InteractiveBehavior : MonoBehaviour{
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        if(other.CompareTag(playerTag))
+        if(other.CompareTag(playerTag)){
             Input.OnMouseLeftClick += Behavior;
+            PlayerManager.instance.CanInteract = true;
+        }
     }
 
     void OnTriggerExit2D(Collider2D other) {
         if(other.CompareTag(playerTag)){
+            PlayerManager.instance.CanInteract = false;
             Input.OnMouseLeftClick -= Behavior;
             ExitInteraction();
-        }    
+        }
+            
     }
 
     protected bool VerifyMoyseRaycast(){
