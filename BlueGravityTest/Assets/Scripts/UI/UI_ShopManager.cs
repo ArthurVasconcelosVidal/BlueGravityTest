@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,19 +13,23 @@ public class UI_ShopManager : MonoBehaviour{
     [SerializeField] UI_ItemPanelManager[] ui_ItemPanelManagers;
     [SerializeField] ItemAsset baseItem;
     [SerializeField] Button nextButton,previousButton;
+    [SerializeField] TextMeshProUGUI playerGold;
 
     ItemAsset[] items;
     int itemIndex = 0;
     int missingItems;
     const int MINIMUM_QUANTITY = 4;
+    ItemAsset selectedItem;
 
     public void OrganizeStore(ItemAsset[] items){
         this.items = items;
         missingItems = items.Length % MINIMUM_QUANTITY;
         itemIndex = 0;
+        selectedItem = null;
         if (missingItems != 0)
             AdjustingItemArray();
         DisplayItems();
+        UpdateMoney();
     }
 
     void AdjustingItemArray(){
@@ -57,6 +62,10 @@ public class UI_ShopManager : MonoBehaviour{
             previousButton.interactable = true;
     }
 
+    void UpdateMoney(){
+        playerGold.text = "G- " + PlayerManager.instance.Wallet.Gold.ToString();
+    }
+
     public void ButtonNext(){
         DisplayItems();
     }
@@ -67,7 +76,13 @@ public class UI_ShopManager : MonoBehaviour{
     }
 
     public void ButtonBuy(){
-        print("Todo");
-        //Buy selected Item;
+        if(selectedItem && PlayerManager.instance.Wallet.CanSpend(selectedItem.Price)){
+            PlayerManager.instance.Wallet.UpdateGold(-selectedItem.Price);
+            UpdateMoney();
+        }
+    }
+
+    public void ButtonItem(UI_ItemPanelManager itemPanel){
+        selectedItem = itemPanel.Item;
     }
 }

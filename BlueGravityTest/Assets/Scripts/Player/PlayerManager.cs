@@ -10,12 +10,14 @@ public class PlayerManager : MonoBehaviour{
     [SerializeField] Rigidbody2D playerRigidbody;
     [SerializeField] GameObject spriteObj;
     [SerializeField] MouseRaycastManager mouseRaycastManager;
+    [SerializeField] PlayerWallet wallet;
 
     public PlayerInput PlayerInput { get => playerInput; }
     public MovementBehavior MovementBehavior { get => movementBehavior; }
     public Rigidbody2D PlayerRigidbody { get => playerRigidbody; }
     public GameObject SpriteObj { get => spriteObj; }
     public MouseRaycastManager MouseRaycastManager { get => mouseRaycastManager; }
+    public PlayerWallet Wallet { get => wallet; }
 
     void Awake() {
         SingletonPattern();

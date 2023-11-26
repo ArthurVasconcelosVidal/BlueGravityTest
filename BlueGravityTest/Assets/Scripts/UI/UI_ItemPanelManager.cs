@@ -10,7 +10,7 @@ public class UI_ItemPanelManager : MonoBehaviour{
     [SerializeField] Image image;
     [SerializeField] TextMeshProUGUI price;
 
-    ItemAsset Item { get => item; }
+    public ItemAsset Item { get => item; }
 
     public void SetValues(ItemAsset item){
         this.item = item;
