@@ -17,8 +17,10 @@ public class InteractiveBehavior : MonoBehaviour{
     }
 
     void OnTriggerExit2D(Collider2D other) {
-        if(other.CompareTag(playerTag))
+        if(other.CompareTag(playerTag)){
             Input.OnMouseLeftClick -= Behavior;
+            ExitInteraction();
+        }    
     }
 
     protected bool VerifyMoyseRaycast(){
@@ -31,5 +33,5 @@ public class InteractiveBehavior : MonoBehaviour{
     }
 
     protected virtual void InteractionBehavior() {}
-
+    protected virtual void ExitInteraction() {}
 }
